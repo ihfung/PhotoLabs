@@ -6,16 +6,16 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const sampleData = props.sampleDataForPhotoListItem;
+  const { sampleDataForPhotoListItem } = props;
   return (
     <div className="photoListItem">
-      <img src={sampleData.imageSource} />
+      <img src={sampleDataForPhotoListItem.imageSource} />
       <br></br>
-      <img src={sampleData.profile} />
+      <img src={sampleDataForPhotoListItem.profile} />
       <br></br>
-      <a href="#">{sampleData.username}</a>
+      <a href="#">{sampleDataForPhotoListItem.username}</a>
       <br></br>
-      <a href="#">{sampleData.location.city}, {sampleData.location.country}</a>
+      <a href="#">{sampleDataForPhotoListItem.location.city}, {sampleDataForPhotoListItem.location.country}</a>
     </div>
 
   );
