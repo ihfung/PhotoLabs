@@ -20,7 +20,8 @@ const sampleDataForPhotoListItem = {
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
- const photos = new Array(3);
+ //const photos = [...Array(3)]; //could use this or array.from
+ const photos = Array.from({ length: 3 }); // Array of 3 undefined elements
  const photoItems = photos.map((photo, index) => (
   <PhotoListItem
     key={index}
