@@ -6,7 +6,9 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton() {
   const [isFav, setIsFav] = useState(false);
   const handleClick = () => {
+    
     setIsFav(prevIsFav => !prevIsFav);
+    console.log(isFav);
   };
     /*
     if (isFav === "inactive") {
@@ -19,7 +21,7 @@ function PhotoFavButton() {
 
   return (
     <div className="photo-list__fav-icon">
-      <div className="photo-list__fav-icon-svg" onClick={handleClick}>
+      <div className={`photo-list__fav-icon-svg ${isFav === false ? true : false}`} onClick={handleClick}>
         <FavIcon />
       </div>
     </div>
