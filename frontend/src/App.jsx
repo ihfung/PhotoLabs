@@ -24,8 +24,6 @@ const App = () => {
  //const photos = [...Array(3)]; //could use this or array.from
  const photos = Array.from({ length: 3 }); // Array of 3 undefined elements
  const photoItems = photos.map((photo, index) => (
-  <div key={index}>
-  <PhotoFavButton key={index} />
   <PhotoListItem
     key={index}
     location={sampleDataForPhotoListItem.location}
@@ -33,7 +31,7 @@ const App = () => {
     username={sampleDataForPhotoListItem.username}
     profile={sampleDataForPhotoListItem.profile}
   />
-  </div>
+  
 ));
 
 return (

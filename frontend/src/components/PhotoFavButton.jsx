@@ -4,8 +4,10 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton() {
-  const [isFav, setIsFav] = useState("inactive");
- const handClick = () => { setIsFav(isFav === "inactive" ? "active" : "inactive"); 
+  const [isFav, setIsFav] = useState(false);
+  const handleClick = () => {
+    setIsFav(prevIsFav => !prevIsFav);
+  };
     /*
     if (isFav === "inactive") {
       setIsFav("active");
@@ -13,11 +15,11 @@ function PhotoFavButton() {
       setIsFav("inactive");
     }
     */
-  };
+  
 
   return (
     <div className="photo-list__fav-icon">
-      <div className={`photo-list__fav-icon-svg ${isFav === 'active' ? 'active' : 'inactive'}`} onClick={handClick}>
+      <div className="photo-list__fav-icon-svg" onClick={handClick}>
         <FavIcon />
       </div>
     </div>
