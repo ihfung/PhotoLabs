@@ -6,7 +6,7 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const { id, username, location, profile, imageSource } = props;
+  const { username, location, profile, imageSource } = props;
   return (
    <div className="photo-list__item">
       <img className="photo-list__image"
@@ -14,7 +14,7 @@ const PhotoListItem = (props) => {
         alt={`Photo by ${username}`}
       />
       <div className="photo-list__user-details">
-        <img 
+        <img className="photo-list__user-profile"
           src={profile}
           alt={`Profile of ${username}`}
         />
@@ -30,7 +30,6 @@ const PhotoListItem = (props) => {
           </div>
         </div>
       </div>
-      <p className="photo-list__id">ID: {id}</p>
     </div>
   );
 };

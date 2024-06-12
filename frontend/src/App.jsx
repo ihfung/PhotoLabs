@@ -25,7 +25,6 @@ const App = () => {
     <div className="App">
      
       <PhotoListItem
-        id={sampleDataForPhotoListItem.id}
         location={sampleDataForPhotoListItem.location}
         imageSource={sampleDataForPhotoListItem.imageSource}
         username={sampleDataForPhotoListItem.username}
