@@ -1,6 +1,7 @@
 import React from "react";
 
 import "../styles/TopicListItem.scss";
+import TopicList from "./TopicList";
 
 const sampleDataForTopicListItem = {
   id: "1",
@@ -12,9 +13,7 @@ const TopicListItem = (props) => {
   return (
     <div className="topic-list__item">
       {/* Insert React */}
-      <a href={props.slug}>
-        <span>{props.label}</span>
-      </a>
+      <TopicList key={sampleDataForTopicListItem.id} slug={sampleDataForTopicListItem.slug} label={sampleDataForTopicListItem.label} />
     </div>
   );
 };
