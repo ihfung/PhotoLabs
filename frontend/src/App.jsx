@@ -1,19 +1,9 @@
 import React from 'react';
 
-import PhotoListItem from './components/PhotoListItem';
+//import PhotoListItem from './components/PhotoListItem';
+import PhotoList from './components/PhotoList';
 import './App.scss';
 
-
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
 
 
 
@@ -21,9 +11,9 @@ const sampleDataForPhotoListItem = {
 const App = () => {
 
  //const photos = [...Array(3)]; //could use this or array.from
- const photos = Array.from({ length: 3 }); // Array of 3 undefined elements
- const photoItems = photos.map((photo, index) => (
-  <PhotoListItem
+ //const photos = Array.from({ length: 3 }); // Array of 3 undefined elements
+ //const photoItems = photos.map((photo, index) => (
+  {/*<PhotoListItem
     key={index}
     location={sampleDataForPhotoListItem.location}
     imageSource={sampleDataForPhotoListItem.imageSource}
@@ -31,12 +21,11 @@ const App = () => {
     profile={sampleDataForPhotoListItem.profile}
   />
   
-));
+));*/}
 
 return (
   <div className="App">
-    
-    {photoItems}
+    <PhotoList />
   </div>
 );
 };
