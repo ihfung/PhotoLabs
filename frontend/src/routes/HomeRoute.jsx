@@ -4,7 +4,7 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import  '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const [isFav, setIsFav] = useState({});
+  const [isFav, setIsFav] = useState([]);
   const toggleFav = (id) => {
     isFav[id] !== undefined ? setIsFav({...isFav, [id]: !isFav[id]}) : setIsFav({...isFav, [id]: true});
     

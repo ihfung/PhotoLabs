@@ -6,11 +6,11 @@ import TopicListItem from "./TopicListItem";
 
 //const sampleDataForTopicList = topics;
 
-const TopicList = (props) => {
+const TopicList = ({ topics = [] }) => {
+  
   return (
     <div className="top-nav-bar__topic-list">
-      {/* Insert React */}
-      {props.topics.map((topic) => (
+      {topics.map((topic) => (
        <TopicListItem key={topic.id} slug={topic.slug} label={topic.title} />))}
     </div>
   );

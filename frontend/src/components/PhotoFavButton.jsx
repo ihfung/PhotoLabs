@@ -10,7 +10,7 @@ function PhotoFavButton({ id, isFav, toggleFav }) {
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg" onClick={handleClick}>
-        <FavIcon fill={isFav ? "#FF0000" : "#EEEEEE"} />
+        <FavIcon selected={isFav}/>
       </div>
     </div>
   );
