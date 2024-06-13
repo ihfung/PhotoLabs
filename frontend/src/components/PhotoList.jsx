@@ -6,9 +6,12 @@ import "../styles/PhotoList.scss";
 //const sampleDataForPhotoList = photos;
 
 const PhotoList = ({photos}) => {
-  const [isFav, setIsFav] = useState(false);
-  const handleClick = () => {
-    setIsFav(!isFav);
+  const [isFav, setIsFav] = useState([]);
+  const toggleFav = (photoId) => {
+    setIsFav((prevFav) => {
+      prevFav.includes(photoId) ? prevFav.filter((fav) => fav !== photoId) : [...prevFav, photoId];
+    });
+   
   };
   return (
     <ul className="photo-list">
