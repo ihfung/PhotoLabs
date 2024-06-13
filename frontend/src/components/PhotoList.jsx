@@ -9,8 +9,8 @@ const PhotoList = ({photos}) => {
   const [isFav, setIsFav] = useState([]);
   const toggleFav = (photoId) => {
     setIsFav((prevFav) => {
-      prevFav.includes(photoId) ? prevFav.filter((fav) => fav !== photoId) : [...prevFav, photoId];
-    });
+      return prevFav.includes(photoId) ? prevFav.filter((fav) => fav !== photoId) : [...prevFav, photoId];
+  });
    
   };
   return (
