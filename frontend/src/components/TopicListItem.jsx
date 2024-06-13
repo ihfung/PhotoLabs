@@ -12,8 +12,7 @@ const sampleDataForTopicListItem = {
 const TopicListItem = (props) => {
   return (
     <div className="topic-list__item">
-      {/* Insert React */}
-      <TopicList key={sampleDataForTopicListItem.id} slug={sampleDataForTopicListItem.slug} label={sampleDataForTopicListItem.label} />
+      <span>{props.label}</span>
     </div>
   );
 };
