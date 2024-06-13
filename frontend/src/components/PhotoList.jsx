@@ -61,8 +61,8 @@ const PhotoList = () => {
     <ul className="photo-list">
       {/* Insert React */}
       {sampleDataForPhotoList.map((photo) => (
-        <li key={photo.id} className="photo-list">
-          <PhotoListItem photo={photo} />
+        <li key={photo.id}>
+          <PhotoListItem username={photo.user.username} location={photo.location} profile={photo.user.profile} imageSource={photo.urls.regular}/>
         </li>
       ))}
     </ul>
