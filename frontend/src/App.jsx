@@ -13,19 +13,10 @@ import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-const [isFavorited, setIsFavourited] = useState([]);
-const toggleFavourite = (photo) => {
-    if (isFavorited.includes(photo)) {
-      let newFavourites = [...isFavorited].filter((favouritePhoto) => photo !== favouritePhoto);
-      setIsFavourited(newFavourites);
-    } else {
-      setIsFavourited((prev) => [...prev, photo]);
-    }
-  };
 
 return (
   <div className="App">
-    <HomeRoute isFavourited={isFavourited} toggleFavourite={toggleFavourite} photos={mockPhotos} topics={mockTopics}/>
+    <HomeRoute photos={mockPhotos} topics={mockTopics}/>
     
   </div>
 );

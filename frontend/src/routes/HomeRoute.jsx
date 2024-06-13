@@ -13,6 +13,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigationBar />
       <PhotoList photos={props.photos} toggleFav={toggleFav} isFav={isFav}/>
+      
     </div>
   );
 };
