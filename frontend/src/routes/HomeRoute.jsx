@@ -3,21 +3,25 @@ import PhotoList from '../components/PhotoList';
 import TopNavigationBar from '../components/TopNavigationBar'; 
 import  '../styles/HomeRoute.scss';
 
-const HomeRoute = ({photos, topics}) => {
-  //Update the app so that we can keep track of which photos the user has selected as favourites.
-  //Consider storing this information in the HomeRoute.
-  const [favourites, setFavorites] = useState([]);
-  const toggleFav = (photoId) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.includes(photoId)
-        ? prevFavorites.filter((id) => id !== photoId)
-        : [...prevFavorites, photoId]
-    );
-  };
+const HomeRoute = (props) => {
+    const defaultState = [];
+    const [isFavorited, setIsFavourited] = useState(defaultState);
+    const toggleFavourite = (photo) => {
+      // console.log('Type of toggleFavourite:', typeof toggleFavourite);
+      if(isFavorited.includes(photo)){
+          let newFavourites = [...isFavorited].filter((favouritePhoto) =>  photo !== favouritePhoto)
+          setIsFavourited(newFavourites);
+
+      }else{
+        setIsFavourited((prev) => 
+           [...prev, photo]);
+
+        }
+    };
   return (
     <div className="home-route">
-      <TopNavigationBar favourites={favourites} topics={topics}/>
-      <PhotoList photos={photos} toggleFav={toggleFav} favourites={favourites}/>
+      <TopNavigationBar isFavorited={isFavorited} topics={topics}/>
+      <PhotoList photos={photos} toggleFavourite={toggleFavourite} isFavorited={isFavorited}/>
     </div>
   );
 };

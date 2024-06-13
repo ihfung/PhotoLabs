@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 //import PhotoListItem from './components/PhotoListItem';
 //import PhotoList from './components/PhotoList';
@@ -13,23 +13,19 @@ import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-
- //const photos = [...Array(3)]; //could use this or array.from
- //const photos = Array.from({ length: 3 }); // Array of 3 undefined elements
- //const photoItems = photos.map((photo, index) => (
-  {/*<PhotoListItem
-    key={index}
-    location={sampleDataForPhotoListItem.location}
-    imageSource={sampleDataForPhotoListItem.imageSource}
-    username={sampleDataForPhotoListItem.username}
-    profile={sampleDataForPhotoListItem.profile}
-  />
-  
-));*/}
+const [isFavorited, setIsFavourited] = useState([]);
+const toggleFavourite = (photo) => {
+    if (isFavorited.includes(photo)) {
+      let newFavourites = [...isFavorited].filter((favouritePhoto) => photo !== favouritePhoto);
+      setIsFavourited(newFavourites);
+    } else {
+      setIsFavourited((prev) => [...prev, photo]);
+    }
+  };
 
 return (
   <div className="App">
-    <HomeRoute photos={mockPhotos} topics={mockTopics}/>
+    <HomeRoute isFavourited={isFavourited} toggleFavourite={toggleFavourite} photos={mockPhotos} topics={mockTopics}/>
     
   </div>
 );

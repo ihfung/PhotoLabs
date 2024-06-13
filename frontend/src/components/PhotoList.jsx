@@ -5,18 +5,13 @@ import "../styles/PhotoList.scss";
 
 //const sampleDataForPhotoList = photos;
 
-const PhotoList = ({photos}) => {
-  const [isFav, setIsFav] = useState([]);
-  const toggleFav = (photoId) => {
-    setIsFav((prevFav) => {
-      return prevFav.includes(photoId) ? prevFav.filter((fav) => fav !== photoId) : [...prevFav, photoId];
-  });
-   
-  };
+const PhotoList = ({photos, toggleFav, isFav}) => {
+ 
+
   return (
     <ul className="photo-list">
       {/* Insert React */}
-      {photos.map((photo) => (
+      {photos && photos.map((photo) => (
         <li key={photo.id}>
           <PhotoListItem 
             username={photo.user.username} 
