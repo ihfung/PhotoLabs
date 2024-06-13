@@ -6,8 +6,8 @@ import  '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
   const [isFav, setIsFav] = useState({});
   const toggleFav = (id) => {
-    isFav(id) !== undefined ? setIsFav({...isFav, [id]: !isFav[id]}) : 
-    setIsFav({...isFav, [id]: true});
+    isFav[id] !== undefined ? setIsFav({...isFav, [id]: !isFav[id]}) : setIsFav({...isFav, [id]: true});
+    
   }  
   return (
     <div className="home-route">
