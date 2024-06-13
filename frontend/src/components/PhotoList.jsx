@@ -5,13 +5,13 @@ import "../styles/PhotoList.scss";
 
 //const sampleDataForPhotoList = photos;
 
-const PhotoList = ({photos, toggleFav, isFav}) => {
+const PhotoList = (props) => {
  
 
   return (
     <ul className="photo-list">
       {/* Insert React */}
-      {photos.map((photo) => (
+      {props.photos.map((photo) => (
         <li key={photo.id}>
           <PhotoListItem 
             username={photo.user.username} 
@@ -19,8 +19,8 @@ const PhotoList = ({photos, toggleFav, isFav}) => {
             profile={photo.user.profile} 
             imageSource={photo.urls.regular} 
             photoId={photo.id} 
-            toggleFav={toggleFav} 
-            isFav={isFav} 
+            toggleFav={props.toggleFav} 
+            isFav={props.isFav} 
           />
         </li>
       ))}
