@@ -11,7 +11,7 @@ const HomeRoute = (props) => {
   }  
   return (
     <div className="home-route">
-      <TopNavigationBar />
+      <TopNavigationBar isFav={Object.values(isFav).includes(true)} />
       <PhotoList photos={props.photos} toggleFav={toggleFav} isFav={isFav}/>
       
     </div>
