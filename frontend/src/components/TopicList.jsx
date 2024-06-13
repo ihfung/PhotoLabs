@@ -24,6 +24,10 @@ const TopicList = () => {
   return (
     <div className="top-nav-bar__topic-list">
       {/* Insert React */}
+      {sampleDataForTopicList.map((topic) => (
+        <a key={topic.id} href={topic.slug}>
+          <span>{topic.title}</span>
+      </a>))}
     </div>
   );
 };
