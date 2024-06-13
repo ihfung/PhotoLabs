@@ -7,7 +7,7 @@ function PhotoFavButton() {
   const [isFav, setIsFav] = useState(false);
   const handleClick = () => {
     
-    setIsFav((prevIsFav) => !prevIsFav);
+    setIsFav((prevIsFav) => !prevIsFav); // toggle the state of isFav from true to false or vice versa
     console.log(isFav);
   };
     /*
