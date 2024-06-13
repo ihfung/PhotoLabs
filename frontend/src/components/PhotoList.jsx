@@ -6,6 +6,10 @@ import "../styles/PhotoList.scss";
 //const sampleDataForPhotoList = photos;
 
 const PhotoList = ({photos}) => {
+  const [isFav, setIsFav] = useState(false);
+  const handleClick = () => {
+    setIsFav(!isFav);
+  };
   return (
     <ul className="photo-list">
       {/* Insert React */}

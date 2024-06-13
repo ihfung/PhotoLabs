@@ -8,6 +8,11 @@ import PhotoFavButton from './PhotoFavButton';
 const PhotoListItem = (props) => {
   /* Insert React */
   const { username, location, profile, imageSource } = props;
+  const [isFav, setIsFav] = useState(false);
+  const handleClick = () => {
+    setIsFav(!isFav);
+    
+  };
   return (
    <div className="photo-list__item">
     <PhotoFavButton />
