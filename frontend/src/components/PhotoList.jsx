@@ -18,7 +18,15 @@ const PhotoList = ({photos}) => {
       {/* Insert React */}
       {photos.map((photo) => (
         <li key={photo.id}>
-          <PhotoListItem username={photo.user.username} location={photo.location} profile={photo.user.profile} imageSource={photo.urls.regular}/>
+          <PhotoListItem 
+            username={photo.user.username} 
+            location={photo.location} 
+            profile={photo.user.profile} 
+            imageSource={photo.urls.regular} 
+            photoId={photo.id} 
+            toggleFav={toggleFav} 
+            favourites={isFav} 
+          />
         </li>
       ))}
     </ul>
