@@ -11,7 +11,7 @@ const PhotoList = ({photos, toggleFav, isFav}) => {
   return (
     <ul className="photo-list">
       {/* Insert React */}
-      {photos && photos.map((photo) => (
+      {photos.map((photo) => (
         <li key={photo.id}>
           <PhotoListItem 
             username={photo.user.username} 
@@ -20,7 +20,7 @@ const PhotoList = ({photos, toggleFav, isFav}) => {
             imageSource={photo.urls.regular} 
             photoId={photo.id} 
             toggleFav={toggleFav} 
-            favourites={isFav} 
+            isFav={isFav} 
           />
         </li>
       ))}
