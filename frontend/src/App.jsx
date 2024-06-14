@@ -13,10 +13,19 @@ import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  const [isFav, setIsFav] = useState([]);
+  
+  const toggleFav = (photoId) => {
+    if (isFav.includes(photoId)) {
+      setIsFav(isFav.filter((id) => id !== photoId));
+    } else {
+      setIsFav([...isFav, photoId]);
+    }
+  };
 
 return (
   <div className="App">
-    <HomeRoute photos={mockPhotos} topics={mockTopics}/>
+    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav}/>
     
   </div>
 );

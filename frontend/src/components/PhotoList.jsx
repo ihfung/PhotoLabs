@@ -7,7 +7,7 @@ import "../styles/PhotoList.scss";
 
 const PhotoList = (props) => {
  
-
+  const photoFavs = props.isFav.includes(props.photos.id);
   return (
     <ul className="photo-list">
       {/* Insert React */}
@@ -20,7 +20,7 @@ const PhotoList = (props) => {
             imageSource={photo.urls.regular} 
             photoId={photo.id} 
             toggleFav={props.toggleFav} 
-            isFav={props.isFav} 
+            isFav={photoFavs} 
           />
         </li>
       ))}
