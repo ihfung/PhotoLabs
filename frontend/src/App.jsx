@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 //import PhotoList from './components/PhotoList';
 //import TopNavigationBar from './components/TopNavigationBar';   
 import HomeRoute from './routes/HomeRoute';
+import PhotoModal from './routes/PhotoDetailsModal';
 import mockTopics from './mocks/topics';
 import mockPhotos from './mocks/photos';
 import './App.scss';
@@ -26,7 +27,7 @@ const App = () => {
 return (
   <div className="App">
     <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav}/>
-    
+    <PhotoModal />
   </div>
 );
 };
