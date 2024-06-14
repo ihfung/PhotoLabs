@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function useApplicationData() {
+const  useApplicationData = () => {
   const [isFav, setIsFav] = useState([]);
   const [closeModal, setCloseModal] = useState(false); //displayModal = false by default setDisplayModal = function to change the value of displayModal
   const [selectedPhoto, setSelectedPhoto] = useState(null); //selectedPhoto = null by default setSelectedPhoto = function to change the value of selectedPhoto
@@ -27,6 +27,10 @@ export default function useApplicationData() {
     toggleFav,
     toggleModal,
     handleSelectPhoto,
-    selectedPhoto
+    selectedPhoto,
+    isFav,
+    closeModal
   };
 }
+
+export default useApplicationData;
