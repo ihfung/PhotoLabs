@@ -10,7 +10,7 @@ const PhotoListItem = (props) => {
   const { username, location, profile, imageSource } = props;
   const handleClick = () => {
     props.toggleModal();
-    console.log('clicked');
+    
   }
   
   return (
