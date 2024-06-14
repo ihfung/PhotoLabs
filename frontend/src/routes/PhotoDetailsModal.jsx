@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PhotoList from '../components/PhotoList';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
@@ -10,20 +10,38 @@ const PhotoDetailsModal = (props) => {
       <button className="photo-details-modal__close-button" onClick= {() => {props.toggleModal()}}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <div className="photo-details-modal__top-bar">
-        <img className="photo-details-modal__image" src={props.selectPhoto.imageSource} alt={`Photo by ${props.selectPhoto.username}`} />
+    <div className="photo-details-modal__top-bar">
+       <div>
+        <img src={props.selectPhoto.imageSourceFull}
+          alt={`Photo by ${props.selectPhoto.username}`} className="photo-details-modal__image" />
+      </div>
+      <div>
         <div className="photo-details-modal__photographer-details">
-          <img className="photo-details-modal__photographer-profile" src={props.selectPhoto.profile} alt={`Profile picture of ${props.selectPhoto.username}`} />
-          <div className="photo-details-modal__photographer-info">
-            <p className="photo-details-modal__header">{props.selectPhoto.username}</p>
-            <p className="photo-details-modal__photographer-location">
-              {props.selectPhoto.location.city}, {props.selectPhoto.location.country}
-            </p>
-          </div>
+        <img
+          className="photo-details-modal__photographer-profile"
+          src={props.selectPhoto.profile}
+          alt={`${props.selectPhoto.username}'s profile`}
+        />
+        <div className="photo-details-modal__photographer-info">
+          {props.selectPhoto.username}
+          <div className="photo-details-modal__photographer-location">{props.selectPhoto.location.city}, {props.selectPhoto.location.country}</div>
         </div>
       </div>
+      </div>
+
+      <div className='photo-details-modal__header'>
+        <h3>Similar Photos</h3>
+      </div>
+
+      <div className='photo-details-modal__images'>
+        <div>
+       
+        </div>
+      </div>
+
     </div>
-  )
+    </div>
+  );
 };
 
 export default PhotoDetailsModal;

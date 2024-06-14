@@ -18,6 +18,7 @@ const PhotoList = (props) => {
             location={photo.location} 
             profile={photo.user.profile} 
             imageSource={photo.urls.regular} 
+            imageSourceFull={photo.urls.full}
             photoId={photo.id} 
             toggleFav={props.toggleFav} 
             isFav={props.isFav.includes(props.photos.id)} 
