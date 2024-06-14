@@ -14,7 +14,7 @@ import './App.scss';
 const App = () => {
   const [isFav, setIsFav] = useState([]);
   const [closeModal, setCloseModal] = useState(false); //displayModal = false by default setDisplayModal = function to change the value of displayModal
-
+  const [selectedPhoto, setSelectedPhoto] = useState(null); //selectedPhoto = null by default setSelectedPhoto = function to change the value of selectedPhoto
 
   const toggleFav = (photoId) => {
     if (isFav.includes(photoId)) {
@@ -25,13 +25,19 @@ const App = () => {
   };
 
   const toggleModal = () => {
+    setSelectedPhoto(null); //set selectedPhoto to null
     setCloseModal(!closeModal); //toggle the value of displayModal to true or false
   };
+
+ 
 
 return (
   <div className="App">
     <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal}/>
-    {closeModal && <PhotoDetailsModal toggleModal={toggleModal} />}
+    {closeModal && <PhotoDetailsModal 
+    toggleModal={toggleModal} 
+    photo={selectedPhoto}
+    />}
   </div>
 );
 };

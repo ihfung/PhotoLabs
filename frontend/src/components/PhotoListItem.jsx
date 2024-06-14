@@ -8,9 +8,10 @@ import PhotoFavButton from './PhotoFavButton';
 const PhotoListItem = (props) => {
   /* Insert React */
   const { username, location, profile, imageSource } = props;
+  
   const handleClick = () => {
-    props.toggleModal();
-    console.log(username, location, profile, imageSource)
+    
+    props.selectedPhoto(username, location, profile, imageSource);
     
   }
   

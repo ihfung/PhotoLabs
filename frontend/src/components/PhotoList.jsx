@@ -21,7 +21,7 @@ const PhotoList = (props) => {
             photoId={photo.id} 
             toggleFav={props.toggleFav} 
             isFav={props.isFav.includes(props.photos.id)} 
-            toggleModal={props.toggleModal}
+            selectedPhoto={props.selectedPhoto}
           />
         </li>
       ))}
