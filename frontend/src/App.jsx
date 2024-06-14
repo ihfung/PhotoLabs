@@ -34,12 +34,17 @@ const App = () => {
     setCloseModal(true);
   }
 
+  // const selectedPhotoGroup = mockPhotos.find((photo) => photo.id === selectedPhoto);
+
 return (
   <div className="App">
-    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectedPhoto={handleSelectPhoto}/>
-    {closeModal && <PhotoDetailsModal 
+    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectPhoto={handleSelectPhoto}/>
+    {selectedPhoto && <PhotoDetailsModal 
     toggleModal={toggleModal} 
     selectPhoto={selectedPhoto}
+    selectedPhotoGroup={Object.values(selectedPhoto.similar_photos)}
+    isFav={isFav}
+    toggleFav={toggleFav}
     />}
   </div>
 );

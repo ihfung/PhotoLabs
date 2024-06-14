@@ -7,28 +7,28 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const { username, location, profile, imageSource, selectedPhoto } = props;
+  const {  selectPhoto, photo } = props;
   
   const handleClick = () => {
     
-    selectedPhoto({username, location, profile, imageSource});
+    selectPhoto(photo);
     
   }
   
   return (
    <div className="photo-list__item">
-    <PhotoFavButton id={props.id} isFav={props.isFav} toggleFav={props.toggleFav}/>
-     <img className="photo-list__image" src={imageSource} alt={`Photo by ${username}`} onClick={handleClick}/>
+    <PhotoFavButton id={props.photo.id} isFav={props.isFav} toggleFav={ () => props.toggleFav(props.photo.id)}/>
+     <img className="photo-list__image" src={photo.urls.regular} alt={`Photo by ${photo.user.username}`} onClick={handleClick}/>
       <div className="photo-list__user-details">
-        <img className="photo-list__user-profile" src={profile} alt={`Profile picture of ${username}`} />
+        <img className="photo-list__user-profile" src={photo.user.profile} alt={`Profile picture of ${photo.user.username}`} />
         <div className="photo-list__user-info">
           <p className="photo-list__username">
-            {username}
+            {photo.user.username}
           </p>
           <div className="photo-list__user-location">
           <p>
-            {location.city},{" "}
-            {location.country}
+            {photo.location.city},{" "}
+            {photo.location.country}
           </p>
           </div>
         </div>

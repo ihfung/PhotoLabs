@@ -14,15 +14,11 @@ const PhotoList = (props) => {
       {props.photos.map((photo) => (
         <li key={photo.id}>
           <PhotoListItem 
-            username={photo.user.username} 
-            location={photo.location} 
-            profile={photo.user.profile} 
-            imageSource={photo.urls.regular} 
-            imageSourceFull={photo.urls.full}
-            photoId={photo.id} 
+            photoId={photo.id}
             toggleFav={props.toggleFav} 
-            isFav={props.isFav.includes(props.photos.id)} 
-            selectedPhoto={props.selectedPhoto}
+            isFav={props.isFav.includes(photo.id)} 
+            selectPhoto={props.selectPhoto}
+            photo={photo}
           />
         </li>
       ))}
