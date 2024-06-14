@@ -21,6 +21,7 @@ const PhotoList = (props) => {
             photoId={photo.id} 
             toggleFav={props.toggleFav} 
             isFav={photoFavs} 
+            toggleModal={props.toggleModal}
           />
         </li>
       ))}

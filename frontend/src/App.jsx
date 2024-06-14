@@ -15,7 +15,7 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [isFav, setIsFav] = useState([]);
-  
+  const [displayModal, setDisplayModal] = useState(false);
   const toggleFav = (photoId) => {
     if (isFav.includes(photoId)) {
       setIsFav(isFav.filter((id) => id !== photoId));
@@ -24,10 +24,14 @@ const App = () => {
     }
   };
 
+  const toggleModal = () => {
+    setDisplayModal(!displayModal);
+  };
+
 return (
   <div className="App">
-    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav}/>
-    <PhotoModal />
+    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal}/>
+    
   </div>
 );
 };
