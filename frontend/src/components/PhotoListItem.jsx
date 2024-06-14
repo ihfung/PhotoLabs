@@ -7,11 +7,11 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const { username, location, profile, imageSource } = props;
+  const { username, location, profile, imageSource, selectedPhoto } = props;
   
   const handleClick = () => {
     
-    props.selectedPhoto(username, location, profile, imageSource);
+    selectedPhoto({username, location, profile, imageSource});
     
   }
   

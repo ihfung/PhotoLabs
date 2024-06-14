@@ -29,11 +29,14 @@ const App = () => {
     setCloseModal(!closeModal); //toggle the value of displayModal to true or false
   };
 
- 
+  const handleSelectPhoto = (photoDetails) => {
+    setSelectedPhoto(photoDetails);
+    setCloseModal(true);
+  }
 
 return (
   <div className="App">
-    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal}/>
+    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectedPhoto={handleSelectPhoto}/>
     {closeModal && <PhotoDetailsModal 
     toggleModal={toggleModal} 
     photo={selectedPhoto}
