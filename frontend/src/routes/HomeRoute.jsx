@@ -8,10 +8,13 @@ const HomeRoute = (props) => {
   const toggleFav = (id) => {
     isFav[id] !== undefined ? setIsFav({...isFav, [id]: !isFav[id]}) : setIsFav({...isFav, [id]: true});
     
-  }  
+  };
+
+  const hasFav = Object.keys(isFav).some((id) => isFav[id]);
+
   return (
     <div className="home-route">
-      <TopNavigationBar isFav={Object.values(isFav).includes(true)} topics={props.topics}/>
+      <TopNavigationBar  topics={props.topics} hasFav={hasFav}/>
       <PhotoList photos={props.photos} toggleFav={toggleFav} isFav={isFav}/>
       
     </div>
