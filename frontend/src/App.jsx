@@ -31,7 +31,7 @@ const App = () => {
 return (
   <div className="App">
     <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal}/>
-    
+    {displayModal && <PhotoModal />}
   </div>
 );
 };
