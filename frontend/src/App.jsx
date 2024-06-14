@@ -39,7 +39,7 @@ return (
     <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectedPhoto={handleSelectPhoto}/>
     {closeModal && <PhotoDetailsModal 
     toggleModal={toggleModal} 
-    photo={selectedPhoto}
+    selectPhoto={selectedPhoto}
     />}
   </div>
 );
