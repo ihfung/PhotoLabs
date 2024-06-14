@@ -13,7 +13,7 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [isFav, setIsFav] = useState([]);
-  const [displayModal, setDisplayModal] = useState(false); //displayModal = false by default setDisplayModal = function to change the value of displayModal
+  const [closeModal, setCloseModal] = useState(false); //displayModal = false by default setDisplayModal = function to change the value of displayModal
 
 
   const toggleFav = (photoId) => {
@@ -25,13 +25,13 @@ const App = () => {
   };
 
   const toggleModal = () => {
-    setDisplayModal(!displayModal); //toggle the value of displayModal to true or false
+    setCloseModal(!closeModal); //toggle the value of displayModal to true or false
   };
 
 return (
   <div className="App">
     <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal}/>
-    {displayModal && <PhotoDetailsModal toggleModal={toggleModal} />}
+    {closeModal && <PhotoDetailsModal toggleModal={toggleModal} />}
   </div>
 );
 };

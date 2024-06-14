@@ -9,6 +9,7 @@ const PhotoDetailsModal = (props) => {
       <button className="photo-details-modal__close-button" onClick= {() => {props.toggleModal()}}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
+      
     </div>
   )
 };
