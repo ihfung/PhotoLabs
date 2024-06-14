@@ -13,7 +13,9 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [isFav, setIsFav] = useState([]);
-  const [displayModal, setDisplayModal] = useState(false);
+  const [displayModal, setDisplayModal] = useState(false); //displayModal = false by default setDisplayModal = function to change the value of displayModal
+
+
   const toggleFav = (photoId) => {
     if (isFav.includes(photoId)) {
       setIsFav(isFav.filter((id) => id !== photoId));
@@ -23,7 +25,7 @@ const App = () => {
   };
 
   const toggleModal = () => {
-    setDisplayModal(!displayModal);
+    setDisplayModal(!displayModal); //toggle the value of displayModal to true or false
   };
 
 return (
