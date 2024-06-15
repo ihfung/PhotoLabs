@@ -21,9 +21,9 @@ const App = () => {
     toggleFav,
     toggleModal,
     handleSelectPhoto,
+    handleTopicPhotos,
     photoData,
-    topicData,
-    handleTopicPhotos
+    topicData
   } = useApplicationData();
 
   // const toggleFav = (photoId) => {
