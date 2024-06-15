@@ -21,7 +21,8 @@ const App = () => {
     toggleFav,
     toggleModal,
     handleSelectPhoto,
-    photoData
+    photoData,
+    topicData
   } = useApplicationData();
 
   // const toggleFav = (photoId) => {
@@ -46,7 +47,7 @@ const App = () => {
 //Modify your App.jsx so that state.photoData is being passed into HomeRoute via props.
 return (
   <div className="App">
-    <HomeRoute photos={photoData} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectPhoto={handleSelectPhoto}/>
+    <HomeRoute photos={photoData} topics={topicData} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectPhoto={handleSelectPhoto}/>
     {selectedPhoto && <PhotoDetailsModal 
     toggleModal={toggleModal} 
     selectPhoto={selectedPhoto}
