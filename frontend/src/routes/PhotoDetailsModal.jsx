@@ -14,7 +14,7 @@ const PhotoDetailsModal = (props) => {
     <div className="photo-details-modal--image-container">
         <PhotoFavButton 
           photoId={props.selectPhoto.id}
-         
+          isFav={props.isFav.includes(props.selectPhoto.id)} // includes is a method that checks if an array includes a certain value
           toggleFav={props.toggleFav}
           handleSelectPhoto={props.handleSelectPhoto}
           />

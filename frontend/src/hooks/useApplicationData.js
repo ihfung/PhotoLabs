@@ -1,6 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 export const ACTIONS = {
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
@@ -12,12 +14,18 @@ export const ACTIONS = {
 
 const initialState = {
   isFav: [],
+  photoData: [],
+  topicData: [],
   closeModal: false,
   selectedPhoto: null
 };
 
 function reducer(state, action) {
   switch (action.type) {
+    case ACTIONS.SET_PHOTO_DATA:
+      return { ...state, photoData: action.payload };
+    case ACTIONS.SET_TOPIC_DATA:
+      return { ...state, topicData: action.payload };
     case ACTIONS.FAV_PHOTO_ADDED:
       return { ...state, isFav: [...state.isFav, action.payload] };
     case ACTIONS.FAV_PHOTO_REMOVED:
@@ -50,12 +58,30 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photoDetails });
   };
 
+  useEffect(() => {
+    fetch('/api/photos')
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+      });
+    }, []); 
+
+  useEffect(() => {
+    fetch('/api/topics')
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
+      });
+    }, []); 
+
   return {
     toggleFav,
     toggleModal,
     handleSelectPhoto,
     selectedPhoto: state.selectedPhoto,
     isFav: state.isFav,
-    closeModal: state.closeModal
+    closeModal: state.closeModal,
+    photoData: state.photoData,
+    topicData: state.topicData
   };
 }

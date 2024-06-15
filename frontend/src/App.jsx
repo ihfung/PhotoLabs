@@ -5,8 +5,8 @@ import useApplicationData from './hooks/useApplicationData';
 //import TopNavigationBar from './components/TopNavigationBar';   
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
-import mockTopics from './mocks/topics';
-import mockPhotos from './mocks/photos';
+//import mockTopics from './mocks/topics';
+//import mockPhotos from './mocks/photos';
 import './App.scss';
 
 
@@ -20,7 +20,8 @@ const App = () => {
     selectedPhoto,
     toggleFav,
     toggleModal,
-    handleSelectPhoto
+    handleSelectPhoto,
+    photoData
   } = useApplicationData();
 
   // const toggleFav = (photoId) => {
@@ -42,10 +43,10 @@ const App = () => {
   // }
 
   // const selectedPhotoGroup = mockPhotos.find((photo) => photo.id === selectedPhoto);
-
+//Modify your App.jsx so that state.photoData is being passed into HomeRoute via props.
 return (
   <div className="App">
-    <HomeRoute photos={mockPhotos} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectPhoto={handleSelectPhoto}/>
+    <HomeRoute photos={photoData} topics={mockTopics} isFav={isFav} toggleFav={toggleFav} toggleModal={toggleModal} selectPhoto={handleSelectPhoto}/>
     {selectedPhoto && <PhotoDetailsModal 
     toggleModal={toggleModal} 
     selectPhoto={selectedPhoto}
