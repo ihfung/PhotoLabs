@@ -11,7 +11,7 @@ const sampleDataForTopicListItem = {
 
 const TopicListItem = (props) => {
   return (
-    <div className="topic-list__item" onClick= {() => console.log(props.topicId) && props.handleTopicPhotos(props.topicId)}>
+    <div className="topic-list__item" onClick= {() => props.handleTopicPhotos(props.topicId)}>
       <span>{props.label}</span>
     </div>
   );
