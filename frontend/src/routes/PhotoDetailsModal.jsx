@@ -11,7 +11,7 @@ const PhotoDetailsModal = (props) => {
       <button className="photo-details-modal__close-button" onClick= {() => {props.toggleModal()}}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-    <div className="photo-details-modal--image-container">
+    <div>
         <PhotoFavButton 
           photoId={props.selectPhoto.id}
           isFav={props.isFav.includes(props.selectPhoto.id)} // includes is a method that checks if an array includes a certain value
@@ -19,13 +19,25 @@ const PhotoDetailsModal = (props) => {
           handleSelectPhoto={props.handleSelectPhoto}
           />
         <img
-          className="photo-details-modal--image"
+          className="photo-details-modal--images"
           src={props.selectPhoto.urls.regular}
           alt="Photo"
         />
-        <h3 className="photo-details-modal--photographer-details">
-          {props.selectPhoto.user.username}
-        </h3>
+        
+        <div className="photo-details-modal--photographer-details">
+          <img className="photo-details-modal__photographer-profile" src={props.selectPhoto.user.profile} />
+          <div className="photo-details-modal__photographer-info">
+              <p>{props.selectPhoto.user.username}</p>
+              
+              <div className="photo-details-modal__photographer-location">
+                <p>
+                  {props.selectPhoto.location.city},{" "}
+                  {props.selectPhoto.location.country}
+                </p>
+              </div>
+            </div>
+        </div>
+        
       </div>
       <hr></hr>
       <header className="photo-details-modal--header">Similar photos</header>
