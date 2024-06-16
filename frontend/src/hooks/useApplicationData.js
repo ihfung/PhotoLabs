@@ -45,7 +45,7 @@ export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const toggleFav = (photoId) => {
-    if (state.isFav.includes(photoId)) {
+    if (state.isFav.includes(photoId)) { //includes() is a method that checks if an array includes a certain element. It returns true if the element is present in the array, otherwise, it returns false.
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId });
     } else {
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId });
