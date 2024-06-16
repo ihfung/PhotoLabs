@@ -81,7 +81,7 @@ export default function useApplicationData() {
 
     useEffect(() => {
       if (state.topicPhotosId != null) { 
-      fetch(`api/topics/photos/${state.topicPhotosId}`)
+      fetch(`/api/topics/photos/${state.topicPhotosId}`)
         .then((response) => response.json())
         .then((data) => {
           dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data });
