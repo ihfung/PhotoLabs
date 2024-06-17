@@ -26,8 +26,6 @@ function reducer(state, action) {
       return { ...state, photoData: action.payload };
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
-    case ACTIONS.GET_PHOTOS_BY_TOPICS:
-      return { ...state, topicPhotosId: action.payload.topicPhotosId };
     case ACTIONS.FAV_PHOTO_ADDED:
       return { ...state, isFav: [...state.isFav, action.payload] };
     case ACTIONS.FAV_PHOTO_REMOVED:
@@ -60,9 +58,7 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photoDetails });
   };
 
-  const handleTopicPhotos = (topicId) => {
-    dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: {topicPhotosId: topicId} });
-  };
+ 
   useEffect(() => {
     fetch('/api/photos')
       .then((response) => response.json())
@@ -79,15 +75,7 @@ export default function useApplicationData() {
       });
     }, []); 
 
-    useEffect(() => {
-      if (state.topicPhotosId != null) { 
-      fetch(`/api/topics/photos/${state.topicPhotosId}`)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data });
-        });
-      }
-    }, [state.topicPhotosId]);
+    
 
   return {
     toggleFav,
