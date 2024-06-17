@@ -34,6 +34,8 @@ function reducer(state, action) {
       return { ...state, selectedPhoto: action.payload, closeModal: true };
     case ACTIONS.TOGGLE_MODAL:
       return { ...state, selectedPhoto: null, closeModal: !state.closeModal };
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      return { ...state, topicPhotosId: action.payload.topicPhotosId };
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
   }
@@ -58,7 +60,11 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photoDetails });
   };
 
- 
+  const handleTopicPhotos = (topicId) => {  
+    dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: { topicPhotosId: topicId } });
+  };
+
+
   useEffect(() => {
     fetch('/api/photos')
       .then((response) => response.json())
@@ -75,7 +81,18 @@ export default function useApplicationData() {
       });
     }, []); 
 
+  useEffect(() => {
+    if (state.topicPhotosId !== null) {
+      
+      fetch(`/api/topics/photos/${state.topicPhotosId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }); //action is going to set the photo data and not get photos by topics because we are already in the topic
+      });
     
+    }
+    
+  }, [state.topicPhotosId]);
 
   return {
     toggleFav,
