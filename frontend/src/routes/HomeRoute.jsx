@@ -9,7 +9,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigationBar 
-        isFavPhotoExist={props.isFav.length > 0} 
+        isFavPhotoExist={props.isFav.length > 0 ? true : false} 
         topics={props.topics}  
         dark={props.dark} 
         handleTopicPhotos={props.handleTopicPhotos}

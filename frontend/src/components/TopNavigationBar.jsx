@@ -13,13 +13,15 @@ const TopNavigation = (props) => {
   const handleLogoClick = () => {
     window.location.reload();
   };
+  console.log(props.isFavPhotoExist, "isFavPhotoExist");
 
  
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo" onClick={handleLogoClick}>PhotoLabs</span>
        <TopicList topics={props.topics} handleTopicPhotos={props.handleTopicPhotos}/>
-       <FavBadge isFavPhoto={props.isFavPhotoExist} />
+       {/* <FavBadge isFavPhoto={props.isFavPhotoExist }/> */}
+       <FavBadge isFavPhoto={props.isFavPhotoExist }/>
        <DarkMode dark={props.dark}/>
     </div>
     
