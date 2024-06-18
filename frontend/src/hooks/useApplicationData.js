@@ -29,7 +29,7 @@ function reducer(state, action) {
     case ACTIONS.FAV_PHOTO_ADDED:
       return { ...state, isFav: [...state.isFav, action.payload] };
     case ACTIONS.FAV_PHOTO_REMOVED:
-      return { ...state, isFav: state.isFav.filter((id) => id !== action.payload) };
+      return { ...state, isFav: [state.isFav.filter((id) => id !== action.payload)]};
     case ACTIONS.SELECT_PHOTO:
       return { ...state, selectedPhoto: action.payload, closeModal: true };
     case ACTIONS.TOGGLE_MODAL:
