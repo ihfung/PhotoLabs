@@ -9,19 +9,19 @@ const PhotoDetailsModal = (props) => {
   return (
     
     <div className="photo-details-modal">
-       <button className="photo-details-modal__close-button" onClick= {() => {props.toggleModal()}}>
+       <button className="photo-details-modal__close-button" onClick= {props.toggleModal}>
           <img src={closeSymbol} alt="close symbol" />
         </button>
     <div className="detail-image">
        
           
-          <PhotoFavButton 
+          <PhotoFavButton
             photoId={props.selectPhoto.id}
             isFav={props.isFav.includes(props.selectPhoto.id)} // includes is a method that checks if an array includes a certain value
             toggleFav={props.toggleFav}
             handleSelectPhoto={props.handleSelectPhoto}
           />
-       
+        
         <img
           className="photo-details-modal__image"
           src={props.selectPhoto.urls.regular}
@@ -45,8 +45,12 @@ const PhotoDetailsModal = (props) => {
       </div>
       <hr></hr>
       <header className="photo-details-modal__header">Similar photos</header>
-      <PhotoList photos={props.selectedPhotoGroup} isFav={props.isFav}
-      toggleFav={props.toggleFav}/>
+      <PhotoList 
+        photos={props.selectedPhotoGroup} 
+        isFav={props.isFav}
+        toggleFav={props.toggleFav}
+        selectPhoto={() => {}}
+      />
     </div>
     
   );

@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -29,7 +29,7 @@ function reducer(state, action) {
     case ACTIONS.FAV_PHOTO_ADDED:
       return { ...state, isFav: [...state.isFav, action.payload] };
     case ACTIONS.FAV_PHOTO_REMOVED:
-      return { ...state, isFav: state.isFav.filter((id) => id !== action.payload) };
+      return { ...state, isFav: state.isFav.filter((id) => id !== action.payload)};
     case ACTIONS.SELECT_PHOTO:
       return { ...state, selectedPhoto: action.payload, closeModal: true };
     case ACTIONS.TOGGLE_MODAL:
@@ -45,9 +45,12 @@ export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const toggleFav = (photoId) => {
+    console.log("toggleFav", state.isFav);
     if (state.isFav.includes(photoId)) { //includes() is a method that checks if an array includes a certain element. It returns true if the element is present in the array, otherwise, it returns false.
+      console.log("abc");
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId });
     } else {
+      console.log("def");
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId });
     }
   };
