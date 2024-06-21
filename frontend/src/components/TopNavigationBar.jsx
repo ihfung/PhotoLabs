@@ -3,7 +3,6 @@ import React from 'react';
 import '../styles/TopNavigationBar.scss'
 import TopicList from './TopicList';  
 import FavBadge from './FavBadge';
-import PhotoList from './PhotoList';
 import DarkMode from './DarkMode';
 
 const TopNavigation = (props) => {
@@ -21,7 +20,7 @@ const TopNavigation = (props) => {
       <span className="top-nav-bar__logo" onClick={handleLogoClick}>PhotoLabs</span>
        <TopicList topics={props.topics} handleTopicPhotos={props.handleTopicPhotos}/>
        {/* <FavBadge isFavPhoto={props.isFavPhotoExist }/> */}
-       <FavBadge isFavPhoto={props.isFavPhotoExist }/>
+       <FavBadge isFavPhotoExist={props.isFavPhotoExist}/>
        <DarkMode dark={props.dark}/>
     </div>
     

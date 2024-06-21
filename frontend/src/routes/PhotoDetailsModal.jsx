@@ -49,6 +49,7 @@ const PhotoDetailsModal = (props) => {
         photos={props.selectedPhotoGroup} 
         isFav={props.isFav}
         toggleFav={props.toggleFav}
+        selectPhoto={() => {}}
       />
     </div>
     

@@ -1,5 +1,5 @@
 .App {
-  margin: 24px;
+  margin: 0px;
 }
 
 .App-logo {
@@ -38,8 +38,21 @@
 }
 
 .App.dark,
-  .App.dark button {
+  .App.dark span {
     background: #222;
     color: white;
   }
   
+  .App.dark .photo-details-modal {
+    background-color: black;
+    color: white;
+  }
+  
+  .App.dark .photo-details-modal__close-button {
+    background-color:grey
+   
+  }
+
+  .App.dark .photo-details-modal__header{
+    color: white;
+  }
